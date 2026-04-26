@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - University Clearance System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your stylesheet -->
+    <style>
+        /* Sidebar hidden class */
+        .sidebar.hidden {
+            display: none;
+        }
+
+        /* Hamburger menu button */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hamburger menu lines */
+        .hamburger-menu div {
+            width: 100%;
+            height: 4px;
+            background-color: #ffffff;
+            border-radius: 2px;
+        }
+
+        /* Hover effect for the hamburger menu */
+        .hamburger-menu:hover div {
+            background-color: #0056b3;
+        }
+        /* Form styling */
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* Payment method selection styling */
+        .payment-method {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<img src="http://localhost/university-clearance/unilogo.png" alt="University Logo" style="height: 80px;">
+
+<!-- Hamburger Menu for Toggling Sidebar -->
+<div class="hamburger-menu" onclick="toggleSidebar()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<!-- Main Content -->
+<div class="main-content" id="main-content">
+    <header>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="header-content">
+            <h1>University Clearance System</h1>
+        </div>
+    </header>
+    <!-- Navigation Sidebar -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="requests.php">Requests</a></li>
+                <li><a href="upload2.php">Upload Documents</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="help.html">Help & Support</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <h1>Payment - University Clearance System</h1>
+    </header>
+
+    <main>
+        <h2>Payment for University Clearance</h2>
+        <p>Please select a payment method and complete the payment to proceed with the clearance process.</p>
+
+        <form id="payment-form" method="POST" action="payment.php">
+
+            <label for="username">Student ID (Username):</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Student ID" required>
+
+            <div class="payment-method">
+                <label>Payment Method:</label>
+
+                <label for="mpesa">MPESA</label>
+                <input type="radio" id="mpesa" name="payment-method" value="mpesa" required>
+
+                <label for="credit-card">Credit Card</label>
+                <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+
+                <label for="bank-transfer">Bank Transfer</label>
+                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+            </div>
+
+            <!-- MPESA -->
+            <div id="mpesa-subform" style="display:none;">
+                <label for="mpesa-phone">Phone Number:</label>
+                <input type="tel" id="mpesa-phone" name="mpesa-phone" placeholder="Enter phone number">
+
+                <label for="mpesa-amount">Amount:</label>
+                <input type="number" id="mpesa-amount" name="mpesa-amount" placeholder="Enter amount" step="0.01" min="1">
+
+                <button type="submit">Proceed to Payment</button>
+            </div>
+
+            <!-- BANK -->
+            <div id="bank-subform" style="display:none;">
+
+                <label for="bank-name">Bank Name:</label>
+                <input type="text" id="bank-name" name="bank-name">
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch">
+
+                <label for="account-number">Account Number:</label>
+                <input type="number" id="account-number" name="account-number">
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount">
+
+                <label for="transaction-id">Transaction ID:</label>
+                <input type="text" id="transaction-id" name="transaction-id">
+
+                <label for="confirmation-code">Confirmation Code:</label>
+                <input type="text" id="confirmation-code" name="confirmation-code">
+
+                <button type="submit">Proceed to Payment</button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 University Clearance System</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const mpesaRadio = document.getElementById("mpesa");
+            const bankRadio = document.getElementById("bank-transfer");
+            const creditRadio = document.getElementById("credit-card");
+
+            const mpesaSubform = document.getElementById("mpesa-subform");
+            const bankSubform = document.getElementById("bank-subform");
+
+            const amount = document.getElementById("amount");
+            const mpesaAmount = document.getElementById("mpesa-amount");
+
+            function updateForm() {
+
+                if (mpesaRadio.checked) {
+                    mpesaSubform.style.display = "block";
+                    bankSubform.style.display = "none";
+
+                    mpesaAmount.required = true;
+                    amount.required = false;
+
+                } else if (bankRadio.checked) {
+                    bankSubform.style.display = "block";
+                    mpesaSubform.style.display = "none";
+
+                    amount.required = true;
+                    mpesaAmount.required = false;
+
+                } else {
+                    mpesaSubform.style.display = "none";
+                    bankSubform.style.display = "none";
+                }
+            }
+
+            mpesaRadio.addEventListener("change", updateForm);
+            bankRadio.addEventListener("change", updateForm);
+            creditRadio.addEventListener("change", updateForm);
+
+            updateForm();
+        });
+        // Function to toggle the sidebar visibility
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

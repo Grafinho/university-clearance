@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your stylesheet -->
+    <style>
+        /* Sidebar hidden class */
+        .sidebar.hidden {
+            display: none;
+        }
+
+        /* Hamburger menu button */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hamburger menu lines */
+        .hamburger-menu div {
+            width: 100%;
+            height: 4px;
+            background-color: #ffffff;
+            border-radius: 2px;
+        }
+
+        /* Hover effect for the hamburger menu */
+        .hamburger-menu:hover div {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<!-- Hamburger Menu for Toggling Sidebar -->
+<div class="hamburger-menu" onclick="toggleSidebar()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<!-- Header -->
+<header style="text-align: center;">
+    <h1>University Clearance System</h1>
+</header>
+
+<!-- Navigation Sidebar -->
+<aside class="sidebar">
+    <nav>
+        <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="requests.php">Requests</a></li>
+            <li><a href="upload2.php">Upload Documents</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="help.html">Help & Support</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- Main Content -->
+<main>
+    <h2>Clearance Request</h2>
+    <p>Please fill in the required details for each department to proceed with the clearance.</p>
+
+    <form id="clearance-request" action="requests.php" method="POST">
+        <label for="username">Student ID (Username):</label>
+        <input type="text" id="username" name="username" placeholder="Enter your Student ID" required>
+
+        <label for="full_name">Student Name (Full Name):</label>
+        <input type="text" id="full_name" name="full_name" placeholder="Enter your name" required>
+
+        <label for="department">Select Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Select a Department</option>
+        </select>
+
+        <label for="Request-code">Request Code:</label>
+        <input type="number" id="Request-code" name="Request-code" placeholder="Enter your user number" required>
+
+        <label for="Request-Description">Request Description:</label>
+        <input type="text" id="Request-Description" name="Request-Description" placeholder="Describe Your Request" required>
+
+        <label for="Comments">Comments:</label>
+        <input type="text" id="Comments" name="Comments" placeholder="Enter your comment">
+
+        <button type="submit">Submit Clearance</button>
+    </form>
+    <!-- Departments Section -->
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 University Clearance System</p>
+</footer>
+
+<script src="departments.js"></script> <!-- JavaScript for dynamic behavior -->
+
+<script>
+    // List of departments
+    const departments = [
+        "Education",
+        "Medicine",
+        "Arts",
+        "Business",
+        "Computing",
+        "Law",
+        "Library",
+        "ComTech",
+        "Transport",
+        "ICT",
+        "Engineering",
+        "Catering",
+        "Halls",
+        "Estates",
+        "Security",
+        "Farm"
+    ];
+
+    // Function to populate the department dropdown
+    function populateDepartments() {
+        const departmentSelect = document.getElementById("department");
+
+        // Clear any existing options
+        departmentSelect.innerHTML = '<option value="">Select a Department</option>';
+
+        // Add departments dynamically
+        departments.forEach(department => {
+            const option = document.createElement("option");
+            option.value = department;
+            option.textContent = department;
+            departmentSelect.appendChild(option);
+        });
+    }
+
+    // Call the function to populate the dropdown when the page loads
+    window.onload = populateDepartments;
+
+    // Function to toggle the sidebar visibility
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+</script>
+</body>
+</html>

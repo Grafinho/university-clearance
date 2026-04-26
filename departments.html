@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your stylesheet -->
+    <style>
+        /* Sidebar hidden class */
+        .sidebar.hidden {
+            display: none;
+        }
+
+        /* Hamburger menu button */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hamburger menu lines */
+        .hamburger-menu div {
+            width: 100%;
+            height: 4px;
+            background-color: #ffffff;
+            border-radius: 2px;
+        }
+
+        /* Hover effect for the hamburger menu */
+        .hamburger-menu:hover div {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<!-- Hamburger Menu for Toggling Sidebar -->
+<div class="hamburger-menu" onclick="toggleSidebar()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<!-- Header -->
+<header style="text-align: center;">
+    <h1>University Clearance System</h1>
+</header>
+
+<!-- Navigation Sidebar -->
+<aside class="sidebar">
+    <nav>
+        <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="requests.php">Requests</a></li>
+            <li><a href="upload2.php">Upload Documents</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="support.php">Help & Support</a></li>
+            <li><a href="settings.php">Settings</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- Main Content -->
+<main>
+    <h2>Departments Clearance</h2>
+    <p>Please Click on the departments below to see your details to proceed to clearance requests.</p>
+
+
+    <!-- Departments Section -->
+    <section class="departments-section">
+        <h3>Select a Department</h3>
+        <div class="departments-grid">
+            <a href="arts.php"><button>Arts</button></a>
+            <a href="business.php"><button>Business</button></a>
+            <a href="catering.php"><button>Catering</button></a>
+            <a href="computing.php"><button>Computing</button></a>
+            <a href="comtech.php"><button>Comtech</button></a>
+            <a href="education.php"><button>Education</button></a>
+            <a href="engineering.php"><button>Engineering</button></a>
+            <a href="estates.php"><button>Estates</button></a>
+            <a href="farm.php"><button>Farm</button></a>
+            <a href="halls.php"><button>Halls</button></a>
+            <a href="ict.php"><button>ICT</button></a>
+            <a href="laboratory.php"><button>Laboratory</button></a>
+            <a href="law.php"><button>Law</button></a>
+            <a href="library.php"><button>Library</button></a>
+            <a href="medicine.php"><button>Medicine</button></a>
+            <a href="science.php"><button>Science</button></a>
+            <a href="security.php"><button>Security</button></a>
+            <a href="transport.php"><button>Transport</button></a>
+            <a href="finance.php"><button>Finance</button></a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 University Clearance System</p>
+</footer>
+
+<script src="departments.js"></script> <!-- JavaScript for dynamic behavior -->
+
+<script>
+
+    // Function to toggle the sidebar visibility
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+</script>
+</body>
+</html>

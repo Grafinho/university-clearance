@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - University Clearance System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Header -->
+<header class="top-bar">
+    <div class="branding">
+        <img src="unilogo.png" alt="University Logo" class="logo">
+        <h1>University Clearance System</h1>
+    </div>
+    <div class="student-info">
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>ID:</strong> 12345678</p>
+        <p><strong>Program:</strong> Computer Science</p>
+        <p><strong>Year:</strong> 4</p>
+    </div>
+    <div class="top-actions">
+        <button class="notifications">🔔</button>
+        <button class="logout">Logout</button>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="dashboard-container">
+    <!-- Navigation Sidebar -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="requests.php">Requests</a></li>
+                <li><a href="upload2.php">Upload Documents</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="help.html">Help & Support</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="main-dashboard">
+        <!-- Clearance Progress Tracker -->
+        <section class="clearance-progress">
+            <h2>Clearance Progress</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: 60%;"></div>
+            </div>
+            <ul class="checklist">
+                <li><span class="status green">✔</span> Finance: Fee clearance</li>
+                <li><span class="status yellow">⚠</span> Library: Pending book returns</li>
+                <li><span class="status green">✔</span> Hostel: Room cleared</li>
+                <li><span class="status red">✘</span> Academic: Final thesis submission</li>
+            </ul>
+        </section>
+
+        <!-- Notifications & Updates -->
+        <section class="notifications-updates">
+            <h2>Notifications & Updates</h2>
+            <div class="notifications-panel">
+                <h3>Recent Notifications</h3>
+                <p>Library clearance approved.</p>
+                <p>Finance clearance pending: Outstanding balance KSh 10,000.</p>
+                <h3>Upcoming Deadlines</h3>
+                <p>Hostel clearance deadline: Dec 15, 2024.</p>
+                <h3>Announcements</h3>
+                <p>Clearance workshop scheduled for Dec 10, 2024.</p>
+            </div>
+        </section>
+
+        <!-- Task Summary Cards -->
+        <section class="task-summary">
+            <h2>Task Summary</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Finance</h3>
+                    <p>Outstanding: KSh 10,000</p>
+                </div>
+                <div class="card">
+                    <h3>Library</h3>
+                    <p>Books to return: 2</p>
+                </div>
+                <div class="card">
+                    <h3>Hostel</h3>
+                    <p>Cleared</p>
+                </div>
+                <div class="card">
+                    <h3>Academic</h3>
+                    <p>Pending thesis submission</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2024 University Clearance System. All rights reserved.
+</footer>
+</body>
+</html>

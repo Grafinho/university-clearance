@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - University Clearance System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<img src="unilogo.png" alt="University Logo" style="height: 80px;">
+<h1>University Clearance System</h1>
+<main>
+    <form id="login-form" action="login.php" method="POST">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Admin Login Button -->
+    <div class="admin-login">
+        <p>Admin? <a href="adminlog.html"><button type="button">Admin Login</button></a></p>
+    </div>
+</main>
+<footer>
+    &copy; 2025 University Clearance System
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

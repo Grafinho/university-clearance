@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <img src="unilogo.png" alt="University Logo" style="height: 80px;">
+    <h1>University Clearance System</h1>
+</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Clearance Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>University Clearance Form</h1>
+<form id="clearance-form">
+    <label for="student-name">Student Name:</label>
+    <input type="text" id="student-name" required>
+
+    <label for="student-id">Student ID:</label>
+    <input type="text" id="student-id" required>
+
+    <label for="clearance-status">Clearance Status:</label>
+    <select id="clearance-status" required>
+        <option value="Cleared">Cleared</option>
+        <option value="Not Cleared">Not Cleared</option>
+    </select>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>S/No</th>
+            <th>Department</th>
+            <th>Item(s) Lost</th>
+            <th>Cost of Item(s)</th>
+            <th>Signature</th>
+        </tr>
+        </thead>
+        <tbody id="departments-list"></tbody>
+    </table>
+
+    <button type="submit">Submit Clearance</button>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
